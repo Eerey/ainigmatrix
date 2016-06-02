@@ -55,10 +55,7 @@ public class VFrame extends JFrame{
 		
 	}
 
-	public static void main(String args[]){
-		VFrame ob = new VFrame();
-	}
-	
+
 
 	
 }

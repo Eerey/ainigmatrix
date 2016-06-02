@@ -25,7 +25,7 @@ public class VPanelMatrix extends JPanel{
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, this.getHeight() * 2, this.getWidth() * 2);
 		
-		String x = "漢字あたアカサザジズゼゾシスセソキクケコイウ";
+		String x = "abcdefhjik";
 
 		
 		
