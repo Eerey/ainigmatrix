@@ -1,15 +1,14 @@
 package main;
 
+import com.sun.javafx.application.LauncherImpl;
+
 import view.VFrame;
+import view.VJavaFxMatrix;
 
 public class Main {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		VFrame ob = new VFrame();
-
+		LauncherImpl.launchApplication(VJavaFxMatrix.class, args);;
 	}
 
 }
