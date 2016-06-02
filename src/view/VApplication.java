@@ -5,27 +5,44 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-public class VJavaFxMatrix extends Application {
+import javafx.stage.StageStyle;
+public class VApplication extends Application {
  
+	boolean transparent = true;
+	
    public void init() throws Exception {
       // Do some heavy lifting
    }
  
    public void start(Stage primaryStage) throws Exception {
-      BorderPane root = new BorderPane(new Label("Loading complete!"));
-      Scene scene = new Scene(root);
-      primaryStage.setWidth(800);
-      primaryStage.setHeight(600);
+      //BorderPane root = new BorderPane(new Label("Loading complete!"));
+      //Scene scene = new Scene(root);
+	  Pane pane = new VPane();
+	  //if (transparent){
+	  //primaryStage.initStyle(StageStyle.TRANSPARENT);
+      Text text = new Text("Transparent!");
+      text.setFont(new Font(12));
+      VBox box = new VBox();
+      box.getChildren().add(text);
+      Scene scene = new Scene(pane,1024, 768);
+      scene.setFill(null);
+	  //}
+      primaryStage.setWidth(1024);
+      primaryStage.setHeight(768);
       primaryStage.setScene(scene);
       primaryStage.show();
       
       Text t2 = new Text();
-      t2.setX(10.0f);
+      t2.setX(20.0f);
       t2.setY(140.0f);
       t2.setCache(true);
       t2.setText("Blurry Text");
@@ -33,7 +50,7 @@ public class VJavaFxMatrix extends Application {
       t2.setFont(Font.font(null, FontWeight.BOLD, 36));
       t2.setEffect(new GaussianBlur());
       
-      root.getChildren().add(t2);
+      box.getChildren().add(t2);
       
       
       
