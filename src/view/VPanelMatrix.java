@@ -46,7 +46,7 @@ public class VPanelMatrix extends JPanel{
 
 				g.setColor(c);
 				// (int)(Math.random()*255)
-				int temp = matrix[i][j].getX() / 11;
+				int temp = matrix[i][j].getXunknown() / 11;
 
 				g.drawString(x.substring(temp, temp + 1), i * fieldsize,
 						(j - 3) * fieldsize);

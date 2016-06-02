@@ -8,7 +8,8 @@ import view.VApplication;
 public class Main {
 
 	public static void main(String[] args) {
-		LauncherImpl.launchApplication(VApplication.class, args);;
+		LauncherImpl.launchApplication(VApplication.class, args);
+		//VFrame v = new VFrame();
 	}
 
 }

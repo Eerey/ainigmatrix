@@ -1,19 +1,26 @@
 package model;
 
+import sun.font.CreatedFontTracker;
+import view.VPane;
+import javafx.application.Platform;
+import javafx.scene.layout.Pane;
+
 
 public class Threader extends Thread{
 
-	private MatrixElement[][] matrix = null;
-	private Matrix feld = null;
-	public static int time = 25;
+	public MatrixElement[][] matrixArray = null;
+	public Matrix matrix = null;
+	public VPane pane = null;
+	public static int time = 250;
 	public static int iterations = 2;
+	public static boolean run = false;
 	
-	public Threader(MatrixElement[][] matrix, Matrix feld){
-		this.matrix = matrix;
-		this.feld = feld;
-		
-		 
-		
+	public Threader(MatrixElement[][] matrix, Matrix feld, VPane pane){
+		this.matrix = feld;
+		this.matrix.fillMatrix();
+		this.matrixArray = this.matrix.getMatrix();
+		this.pane = pane;
+		run = true;
 	}
 	
 	public void sleepMe(int time){
@@ -26,26 +33,23 @@ public class Threader extends Thread{
 	}
 	
 	public void run(){
-
-
-		for(;;){
-			sleepMe(time);
-			feld.moveMatrix();
-			feld.repaint();
-			
-			
-			for(int i = 0; i<iterations;i++){
-				if(time>0)this.sleepMe(time);
-				//feld.alphaRandomMatrix();
-				feld.highLight();
-				feld.fillMatrixRandom();
-				feld.repaint();
-				//System.out.println("schleife");
-			}
-			
-			
-			
+		sleepMe(200);
+		if (pane!=null)
 		
+		while(run){
+			for (MatrixElement[] x : matrixArray){
+				for (MatrixElement e : x){
+					e.changeTextRandom();
+				}
+			}
+			sleepMe(time);
+			try{
+			if (pane.dummy!=null)pane.dummy.setText(String.valueOf(Math.random()));	
+			} catch(Exception e){}
+			}
+			pane.updateScreen();
+			System.out.println("hmm");
+			
 	
 		}
 	}
